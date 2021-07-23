@@ -21,7 +21,14 @@ export default function SinglePost() {
                </div>
                <p className="singlePostDescription">
                    lorem ipsm lorem ipsm  lorem ipsm lorem ipsm lorem ipsm  lorem ipsm 
-                   lorem loremloremlorem
+                   lorem loremlorem lorem
+                   lorem ipsm lorem ipsm  lorem ipsm lorem ipsm lorem ipsm  lorem ipsm 
+                   lorem loremlorem lorem
+                   lorem ipsm lorem ipsm  lorem ipsm lorem ipsm lorem ipsm  lorem ipsm 
+                   lorem loremlorem lorem
+                   lorem ipsm lorem ipsm  lorem ipsm lorem ipsm lorem ipsm  lorem ipsm 
+                   lorem loremlorem loremlorem ipsm lorem ipsm  lorem ipsm lorem ipsm lorem ipsm  lorem ipsm 
+                   lorem loremlorem lorem
                </p>
             </div>
             
