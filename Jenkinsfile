@@ -11,7 +11,7 @@ pipeline {
         stage('Build & Push Dockerfile.') {
             steps {      
                      
-            
+
             sh 'docker build .  -t  si3mshady/blogsite-fe:2' 
             sh 'docker login -u $USERNAME -p $PASSWORD'       
             sh 'docker push si3mshady/blogsite-fe:2'  
@@ -58,9 +58,7 @@ pipeline {
                     rm results.scan;  
                     rm -rf snyk* || true && echo "-1";        
                     for i in $(docker images | awk '{print $3}'); do sudo docker  rmi $i --force ; done || true && echo -1 
-                    docker system prune -f;
-                    git checkout main; 
-                    git merge origin/frontend;
+                    docker system prune -f;                    
                     
                     '''
                 }
