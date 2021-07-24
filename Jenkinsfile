@@ -12,9 +12,9 @@ pipeline {
             steps {      
                      
             
-            sh 'docker build .  -t  si3mshady/blogsite-fe:1' 
+            sh 'docker build .  -t  si3mshady/blogsite-fe:2' 
             sh 'docker login -u $USERNAME -p $PASSWORD'       
-            sh 'docker push si3mshady/blogsite-fe:1'  
+            sh 'docker push si3mshady/blogsite-fe:2'  
               
 
             }
@@ -41,7 +41,7 @@ pipeline {
                  echo $count
                  result=$(if [ $count -lt 200 ]; then echo PASS; else echo "FAIL"; fi);
                  echo $result
-                 if [ $result = PASS ]; then  docker save si3mshady/blogsite-fe:1 > frontend.tar ; else echo "FAIL"; fi;
+                 if [ $result = PASS ]; then  docker save si3mshady/blogsite-fe:2 > frontend.tar ; else echo "FAIL"; fi;
                            
            '''
                 
@@ -56,7 +56,7 @@ pipeline {
                     rm results.scan;  
                     rm -rf snyk* || true && echo "-1";        
                     for i in $(docker images | awk '{print $3}'); do sudo docker  rmi $i --force ; done || true && echo -1 
-                    
+                    docker system prune -f;
                     '''
                 }
             }

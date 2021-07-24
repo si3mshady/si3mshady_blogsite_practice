@@ -9,7 +9,7 @@ export default function Write() {
                         <i class="fas fa-plus"></i>
                     </label>
                     <input type="file" id="fileInput" style={{display:"none"}} />
-                    <input type="text" placeholder="Title" />
+                    <input type="text" placeholder="Title"className="writeInput" autoFocus={true}/>
                 </div>
             </form>
         </div>
