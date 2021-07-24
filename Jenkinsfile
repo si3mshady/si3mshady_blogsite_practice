@@ -50,8 +50,9 @@ pipeline {
 
         stage('Send exported Docker image to s3.') {
                 steps {
-                    sh '''                                         
-                    aws s3 cp ./frontend.tar s3://si3mshady-artifacts                 
+                    sh '''                              
+                    now=$(date "+%Y.%m.%d-%H.%M.%S")           
+                    aws s3 cp ./frontend.$now.tar s3://si3mshady-artifacts                 
                     rm frontend.tar;
                     rm results.scan;  
                     rm -rf snyk* || true && echo "-1";        
