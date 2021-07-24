@@ -71,3 +71,7 @@ def begin():
 
 if __name__  == "__main__":
   begin()
+
+
+# resume
+# https://youtu.be/tlTdbc5byAs?t=4198
