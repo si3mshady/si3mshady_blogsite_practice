@@ -41,6 +41,7 @@ pipeline {
                  echo $count
                  result=$(if [ $count -lt 200 ]; then echo PASS; else echo "FAIL"; fi);
                  echo $result
+                     
                  if [ $result = PASS ]; then  docker save si3mshady/blogsite-fe:2 > frontend.tar ; else echo "FAIL"; fi;
                            
            '''
@@ -50,7 +51,8 @@ pipeline {
 
         stage('Send exported Docker image to s3.') {
                 steps {
-                    sh '''                                         
+                    sh '''                          
+                            
                     aws s3 cp ./frontend.tar s3://si3mshady-artifacts                 
                     rm frontend.tar;
                     rm results.scan;  
