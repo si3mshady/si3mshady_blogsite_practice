@@ -58,9 +58,7 @@ pipeline {
                     rm results.scan;  
                     rm -rf snyk* || true && echo "-1";        
                     for i in $(docker images | awk '{print $3}'); do sudo docker  rmi $i --force ; done || true && echo -1 
-                    docker system prune -f;
-                    git checkout main; 
-                    git merge origin/frontend;
+                    docker system prune -f;                    
                     
                     '''
                 }
