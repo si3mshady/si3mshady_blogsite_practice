@@ -11,7 +11,7 @@ pipeline {
         stage('Build & Push Dockerfile.') {
             steps {      
                      
-            sh 'sudo chmod 777 /var/run/docker.sock'
+            sh 'sudo  chmod 777 /var/run/docker.sock'
             sh 'docker build .  -t  si3mshady/blogsite-fe:2' 
             sh 'docker login -u $USERNAME -p $PASSWORD'       
             sh 'docker push si3mshady/blogsite-fe:2'  
