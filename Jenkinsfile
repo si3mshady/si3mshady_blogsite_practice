@@ -41,8 +41,8 @@ pipeline {
                  echo $count
                  result=$(if [ $count -lt 200 ]; then echo PASS; else echo "FAIL"; fi);
                  echo $result
-                 now=$(date "+%Y.%m.%d-%H.%M.%S")      
-                 if [ $result = PASS ]; then  docker save si3mshady/blogsite-fe:2 > frontend.$now.tar ; else echo "FAIL"; fi;
+                     
+                 if [ $result = PASS ]; then  docker save si3mshady/blogsite-fe:2 > frontend.tar ; else echo "FAIL"; fi;
                            
            '''
                 
@@ -53,8 +53,8 @@ pipeline {
                 steps {
                     sh '''                          
                             
-                    aws s3 cp ./frontend.$now.tar s3://si3mshady-artifacts                 
-                    rm frontend.$now.tar;
+                    aws s3 cp ./frontend.tar s3://si3mshady-artifacts                 
+                    rm frontend.tar;
                     rm results.scan;  
                     rm -rf snyk* || true && echo "-1";        
                     for i in $(docker images | awk '{print $3}'); do sudo docker  rmi $i --force ; done || true && echo -1 
