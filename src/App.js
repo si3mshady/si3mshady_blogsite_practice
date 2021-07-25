@@ -25,12 +25,16 @@ function App() {
             <HomePage />
           </Route>
 
+          <Route exact path="/write">
+          <Write />
+          </Route>
 
-          <Route exact path="/register">
+
+          <Route  path="/register">
             {user ? <HomePage /> : <Register />}
           </Route>
 
-          <Route exact path="/login">
+          <Route  path="/login">
           {user ? <HomePage /> : <Login />}
           </Route>
 
@@ -38,11 +42,9 @@ function App() {
             <Single />
           </Route>
 
-          <Route exact path="/write">
-          <Write />
-          </Route>
+         
 
-          <Route exact path="/settings">
+          <Route  path="/settings">
           {user ? <Settings /> : <Register />} 
           </Route>
 
