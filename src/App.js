@@ -39,7 +39,7 @@ function App() {
           </Route>
 
           <Route exact path="/write">
-          {user ? <Write /> : <Register />}
+          <Write />
           </Route>
 
           <Route exact path="/settings">
