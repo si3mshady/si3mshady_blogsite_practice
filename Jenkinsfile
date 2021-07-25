@@ -12,7 +12,7 @@ pipeline {
             steps {      
                      
 
-            sh 'docker build .  -t  si3mshady/blogsite-fe:2' 
+            sh 'docker build .  -t  si3mshady/blogsite-fe:3' 
             sh 'docker login -u $USERNAME -p $PASSWORD'       
             sh 'docker push si3mshady/blogsite-fe:3'  
               
