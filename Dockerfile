@@ -18,8 +18,9 @@ FROM nginx:latest
 
 LABEL developer=ElliottLamarArnold
 
+WORKDIR /usr/share/nginx/html
 COPY --from=buildstep /app/build/ /usr/share/nginx/html
-
+COPY default.conf default.conf
 EXPOSE 80
 
 # docker build .  -t si3mshady/blogsite-fe:1 
