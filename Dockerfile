@@ -20,7 +20,10 @@ LABEL developer=ElliottLamarArnold
 
 WORKDIR /usr/share/nginx/html
 COPY --from=buildstep /app/build/ /usr/share/nginx/html
-COPY default.conf default.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
 
 # docker build .  -t si3mshady/blogsite-fe:1 
