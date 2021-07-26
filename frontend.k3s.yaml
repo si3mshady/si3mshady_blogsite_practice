@@ -14,7 +14,7 @@ spec:
     spec:
       containers:        
       - name: blogfrontend
-        image: si3mshady/blogsite-fe:3        
+        image: si3mshady/blogsite-fe:4       
         resources:
           requests:
             memory: "250Mi"
