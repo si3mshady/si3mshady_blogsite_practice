@@ -25,7 +25,7 @@ RUN mkdir -p /blogsite
 # COPY --from=buildstep /app/build/ /usr/share/nginx/html
 COPY --from=buildstep /app/build/ /blogsite
 
-# RUN rm /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/conf.d/default.conf
 # COPY nginx.conf /etc/nginx/conf.d
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 EXPOSE 80
