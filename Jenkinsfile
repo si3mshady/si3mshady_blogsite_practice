@@ -12,9 +12,9 @@ pipeline {
             steps {      
                      
 
-            sh 'docker build .  -t  si3mshady/blogsite-fe:4' 
+            sh 'docker build .  -t  si3mshady/blogsite-fe:5' 
             sh 'docker login -u $USERNAME -p $PASSWORD'       
-            sh 'docker push si3mshady/blogsite-fe:4'  
+            sh 'docker push si3mshady/blogsite-fe:5'  
               
 
             }
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh '''docker run -e SNYK_TOKEN=$TOKEN  \
                 -v $PWD:/project  snyk/snyk-cli:docker test --docker \
-                  si3mshady/blogsite-fe:4  | tee results.scan                   
+                  si3mshady/blogsite-fe:5  | tee results.scan                   
                   echo 'Scanning Complete'
                     ''' 
 
@@ -42,7 +42,7 @@ pipeline {
                  result=$(if [ $count -lt 200 ]; then echo PASS; else echo "FAIL"; fi);
                  echo $result
                      
-                 if [ $result = PASS ]; then  docker save si3mshady/blogsite-fe:4 > frontend.tar ; else echo "FAIL"; fi;
+                 if [ $result = PASS ]; then  docker save si3mshady/blogsite-fe:5 > frontend.tar ; else echo "FAIL"; fi;
                            
            '''
                 
