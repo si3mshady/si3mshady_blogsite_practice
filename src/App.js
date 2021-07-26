@@ -20,7 +20,6 @@ function App() {
     <Router> 
         <TopBar />  
           <Switch>
-
           <Route exact path="/">
             <HomePage />
           </Route>
@@ -30,11 +29,11 @@ function App() {
           </Route>
 
 
-          <Route  path="/register">
+          <Route  exact path="/register">
             {user ? <HomePage /> : <Register />}
           </Route>
 
-          <Route  path="/login">
+          <Route  exact path="/login">
           {user ? <HomePage /> : <Login />}
           </Route>
 
@@ -44,7 +43,7 @@ function App() {
 
          
 
-          <Route  path="/settings">
+          <Route exact path="/settings">
           {user ? <Settings /> : <Register />} 
           </Route>
 
