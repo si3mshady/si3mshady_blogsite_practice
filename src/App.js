@@ -1,5 +1,5 @@
 import TopBar from './components/topbar/TopBar'
-import Homepage from './pages/home/Home'
+import HomePage from './pages/home/Home'
 import Single from './pages/single/Single'
 import Write from './pages/write/Write'
 import Settings from './pages/settings/Settings'
@@ -15,31 +15,46 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const currentUser = true;
+  const user = true;
   return (
-    <Router>
-      <TopBar />
-      <Switch>
-        <Route exact path="/">
-          <Homepage />
-        </Route>
-        <Route path="/posts">
-          <Homepage />
-        </Route>
-        <Route path="/register">
-          {currentUser ? <Homepage /> : <Register />}
-        </Route>
-        <Route path="/login">{currentUser ? <Homepage /> : <Login />}</Route>
-        <Route path="/post/:id">
-          <Single />
-        </Route>
-        <Route path="/write">{currentUser ? <Write /> : <Login />}</Route>
-        <Route path="/settings">
-          {currentUser ? <Settings /> : <Login />}
-        </Route>
-      </Switch>
+    <Router> 
+        <TopBar />  
+          <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+
+          <Route exact path="/write">
+          <Write />
+          </Route>
+
+
+          <Route  exact path="/register">
+            {user ? <HomePage /> : <Register />}
+          </Route>
+
+          <Route  exact path="/login">
+          {user ? <HomePage /> : <Login />}
+          </Route>
+
+          <Route  path="/post/:postId">
+            <Single />
+          </Route>
+
+         
+
+          <Route exact path="/settings">
+          {user ? <Settings /> : <Register />} 
+          </Route>
+
+
+          
+
+
+          </Switch>   
+   
     </Router>
   );
-}
+  }
 
 export default App;
