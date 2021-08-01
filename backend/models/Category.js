@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// create post schema 
+// create category schema 
 
 const CategorySchema = new mongoose({
     name: {
