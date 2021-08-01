@@ -1,7 +1,9 @@
 const express =  require('express');
 const app = express();
+const authRoute = require('./routes/auth.js')
 const mongoose = require('mongoose')
 
+app.use(express.json())
 
 mongoose.connect('mongodb://localhost:27017/', {useNewUrlParser: true,
 useUnifiedTopology: true, useCreateIndex: true
@@ -14,6 +16,8 @@ useUnifiedTopology: true, useCreateIndex: true
     }
 });
 
+
+app.use('/api/auth', authRoute)
 
 const port = 5000;
 app.listen(port, () => {
