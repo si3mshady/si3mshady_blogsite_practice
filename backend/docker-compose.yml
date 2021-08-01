@@ -1,0 +1,10 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  db:
+    volumes:
+      - blog:/data/db
+    image: mongo:latest
+    ports:
+      - "27017:27017"       
+volumes:
+  blog:
