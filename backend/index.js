@@ -1,6 +1,7 @@
 const express =  require('express');
 const app = express();
 const authRoute = require('./routes/auth.js')
+const usersRoute = require('./routes/users')
 const mongoose = require('mongoose')
 
 app.use(express.json())
@@ -18,6 +19,7 @@ useUnifiedTopology: true, useCreateIndex: true
 
 
 app.use('/api/auth', authRoute)
+app.use('/api/users', usersRoute)
 
 const port = 5000;
 app.listen(port, () => {
