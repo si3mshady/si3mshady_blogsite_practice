@@ -12,7 +12,8 @@ export default function Home() {
         const fetchData = async () => {
 
             const res = await axios.get('/posts')
-            console.log(res)
+            console.log(res.data)
+            setPost(res.data)
         }
           
 
@@ -20,7 +21,7 @@ export default function Home() {
         
 
 
-    })
+    }, [])
 
     
     return (
@@ -31,7 +32,7 @@ export default function Home() {
         <div className="home">
         
        
-            <Posts />
+            <Posts posts={posts}/>
             <Sidebar />
          
         </div>
