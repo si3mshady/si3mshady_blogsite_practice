@@ -1,5 +1,5 @@
 import './sidebar.css'
-
+import React, {useState, useEffect} from 'react'
 export default function Sidebar() {
     const imgUrl = "https://static.metacritic.com/images/products/movies/9/527182c55c79758fafe05160ee80f6fb.jpg"
 
