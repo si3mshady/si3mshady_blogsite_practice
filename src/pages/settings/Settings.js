@@ -1,6 +1,6 @@
 import './settings.css'
 import Sidebar from '../../components/sidebar/Sidebar'
-
+import React, {useState, useEffect} from 'react'
 export default function Settings() {
     return (
         <div className="settings">

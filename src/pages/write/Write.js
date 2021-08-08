@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react'
 import './write.css'
 import neonGas from '../../images/neonGas.png'
 export default function Write() {
