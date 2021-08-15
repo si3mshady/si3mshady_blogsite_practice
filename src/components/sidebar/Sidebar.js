@@ -1,7 +1,23 @@
 import './sidebar.css'
+import axios from 'axios'
+import {Link} from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 export default function Sidebar() {
     const imgUrl = "https://static.metacritic.com/images/products/movies/9/527182c55c79758fafe05160ee80f6fb.jpg"
+    const [category, setCategory] = useState([])
+
+
+    useEffect(() => {
+
+     const getCategories = async () => {
+         axios.get('/category').then(data => setCategory(data.data))
+     }
+
+     getCategories()
+
+    })
+
+
 
     return (
         
@@ -16,10 +32,17 @@ export default function Sidebar() {
             <div className="sidebarItem">
                 <span className="sidebarTitle">CATGEORIES</span>
                 <ul className="sidebarList">
-                    <li className="sidebarListItem">Life</li>
-                    <li className="sidebarListItem">Music</li>
-                    <li className="sidebarListItem">Tech</li>
-                    <li className="sidebarListItem">Cinema</li>
+                    {category.map(val => ( 
+                        
+                        <Link className="link" to={`/?category=${val.name}`}>
+                        
+                        <li className="sidebarListItem">{val.name}</li> 
+                        
+                        </Link>
+                        
+                        
+                        ))   }
+        
                 </ul>
                 
            

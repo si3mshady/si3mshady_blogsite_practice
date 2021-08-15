@@ -6,7 +6,7 @@ const postsRoute = require('./routes/posts')
 const catgeoryRoute = require('./routes/categories')
 const mongoose = require('mongoose')
 const multer = require('multer')
-
+const path = require('path')
 
 
 
@@ -14,6 +14,7 @@ const multer = require('multer')
 app.use(express.json())
 
 
+app.use('/images', express.static(path.join(__dirname, 'images')))
 
 
 mongoose.connect('mongodb://localhost:27017/', {useNewUrlParser: true,
