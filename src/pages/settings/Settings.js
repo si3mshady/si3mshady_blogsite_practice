@@ -1,7 +1,10 @@
 import './settings.css'
 import Sidebar from '../../components/sidebar/Sidebar'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import {Context} from '../../context/Context'
+
 export default function Settings() {
+    const {user} = useContext(Context);
     return (
         <div className="settings">
             <div className="settingsWrapper">                

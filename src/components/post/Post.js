@@ -3,8 +3,10 @@ import './post.css'
 import {Link} from 'react-router-dom'
 
 export default function Post({image, post}) {
-    // const imgURL = image !== null ? image : url
-    
+
+
+  
+    const PF  = "http://localhost:5000/images/"
     const imgURL = "https://res.cloudinary.com/culturemap-com/image/upload/ar_4:3,c_fill,g_faces:center,w_980/v1508806983/photos/263174_original.jpg"
     return (
         <div className="post">
@@ -12,7 +14,7 @@ export default function Post({image, post}) {
            <img 
            className="postImage" alt=""
       
-           src={post.photo ? post.photo : imgURL}></img> 
+           src={ PF +  post.photo}></img> 
 
            <div className="postInfo">
                <div className="postCategories">    
@@ -23,7 +25,7 @@ export default function Post({image, post}) {
                         ))}                                   
                   
                </div>
-               <Link to={`post/${post._id}`}>
+               <Link className='link' to={`post/${post._id}`}>
                <span className="postTitle">  {post.title}  </span>
                </Link>
              

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState,useContext, useEffect} from 'react'
 import TopBar from './components/topbar/TopBar'
 import HomePage from './pages/home/Home'
 import Single from './pages/single/Single'
@@ -6,6 +6,8 @@ import Write from './pages/write/Write'
 import Settings from './pages/settings/Settings'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
+
+import {Context} from './context/Context'
 import './App.css';
 
 import {
@@ -16,7 +18,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const user = false;
+  const {user} = useContext(Context);
   return (
     <Router> 
         <TopBar />  
